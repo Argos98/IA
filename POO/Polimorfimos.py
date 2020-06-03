@@ -18,11 +18,11 @@ class Ciclista(Persona):
 
 def main():
 
-    perso1 = Persona('David') 
-    perso1.avanza
+     perso1 = Persona('David') 
+     perso1.avanza()
 
-    ciclista = Ciclista('Pepe')     
-    ciclista.avanza
+     ciclista = Ciclista('Pepe')     
+     ciclista.avanza()
 
 if __name__ == '__main__':
     main()
