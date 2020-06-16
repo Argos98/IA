@@ -1,10 +1,17 @@
+#esto basicamente es el main de la simulacion 
+
+#esto es el importo de las clases creadas para que esta simulacion funcione 
 from borrachos import BorrachoTradicional
 from campo import Campo 
 from coordenada import Coordenada 
 
+#esto es la importo de una libreria para poder crear la grafica
+from bokeh.plotting import figure, show
 
 
+#esta funcion hace que camina 
 def caminata(campo, borracho, pasos):
+    
     inicio = campo.obtener_coordenada(borracho)
 
     for _ in range(pasos):
@@ -26,9 +33,13 @@ def simular_caminata(pasos, numero_de_intentos, tipo_de_borracho):
 
     return distancias
 
-
+def graficar(x,y):
+    grafica = figure(title='Caminata de Borrachos', x_axis_label='pasos',y_axis_label='distancia')
+    grafica.line(x,y ,legend='distancia media')
+    show(grafica)
 
 def main(distancias_de_caminata, numero_de_intentos, tipo_de_borracho):
+    
     distancias_media_por_caminata = []
 
     for pasos in distancias_de_caminata:
@@ -41,6 +52,9 @@ def main(distancias_de_caminata, numero_de_intentos, tipo_de_borracho):
         print(f'Media = {distancia_media}')
         print(f'Max = {distancia_maxima}')
         print(f'Min = {distancia_minima}')
+        graficar(distancias_de_caminata, distancias_media_por_caminata)
+
+
    
 
 if __name__ == '__main__':
@@ -48,3 +62,4 @@ if __name__ == '__main__':
     numero_de_intentos = 100
 
     main(distancias_de_caminata, numero_de_intentos, BorrachoTradicional)
+   
