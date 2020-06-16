@@ -1,16 +1,18 @@
+
 class Campo:
+
     def __init__(self):
-        self.cordenadas_borracho ={}
+        self.coordenadas_de_borrachos = {}
 
-    def aniadir_borracho(self, borracho, cordenada):
-        self.coordenadas_borrachos[borracho] = cordenada
-    
+    def anadir_borracho(self, borracho, coordenada):
+        self.coordenadas_de_borrachos[borracho] = coordenada
+
     def mover_borracho(self, borracho):
-        delta_x, delta_y = borracho.camnina()
-        cordenada_actual = self.cordenadas_borracho[borracho]
-        nueva_cordenada = cordenada_actual.mover(delta_x, delta_y)
+        delta_x, delta_y = borracho.camina()
+        coordenada_actual = self.coordenadas_de_borrachos[borracho]
+        nueva_coordenada = coordenada_actual.mover(delta_x, delta_y)
 
-        self.cordenadas_borracho[borracho] = nueva_cordenada
+        self.coordenadas_de_borrachos[borracho] = nueva_coordenada
 
-    def obtener_cordenada(self, borracho):
-        return self.cordenadas_borracho[borracho]
+    def obtener_coordenada(self, borracho):
+        return self.coordenadas_de_borrachos[borracho]
